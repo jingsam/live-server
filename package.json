@@ -27,15 +27,17 @@
     "serve-index": "^1.7.2"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "supertest": "^2.0.1",
     "eslint": "^3.13.0",
-    "jshint": "^2.9.2"
+    "jshint": "^2.9.2",
+    "mocha": "^3.2.0",
+    "pkg": "^4.3.0",
+    "supertest": "^2.0.1"
   },
   "scripts": {
     "lint": "eslint live-server.js index.js",
     "hint": "jshint live-server.js index.js",
-    "test": "mocha test && npm run lint"
+    "test": "mocha test && npm run lint",
+    "pkg": "pkg . --out-path=dist/"
   },
   "bin": {
     "live-server": "./live-server.js"
@@ -62,5 +64,12 @@
       "no-unused-vars": 1,
       "no-shadow": 1
     }
+  },
+  "pkg": {
+    "targets": [
+      "node6-macos-x64",
+      "node6-linux-x64",
+      "node6-win-x64"
+    ]
   }
 }
